@@ -29,6 +29,12 @@ class Robot
     @direction = direction
   end
 
+  def place(x, y, direction)
+    @x = x.to_i
+    @y = y.to_i
+    @direction = direction.to_s if direction_keys.include?(direction.to_s)
+  end
+
   def step_forward
     direction = DIRECTIONS[@direction.to_sym]
     axis_value = instance_variable_get("@#{direction[:axis]}")
